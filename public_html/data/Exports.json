@@ -1,0 +1,19 @@
+{   "year": 2000, 
+    "countries": [
+    { "USA",
+        "exports":  [
+        {"product":"corn",
+            "countries": [
+            { "name":"MEX" ,"amount":"10"}, 
+            { "name":"AUS" ,"amount":"14"}, 
+            { "name":"BRA" ,"amount":"10"}
+            ]},
+        {"product":"meat",
+            "countries": [
+            { "name":"MEX" ,"amount":"10"}, 
+            { "name":"AUS" ,"amount":"14"}, 
+            { "name":"BRA" ,"amount":"10"}
+            ]}
+        ]
+    }
+}
