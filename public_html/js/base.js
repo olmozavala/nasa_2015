@@ -8,6 +8,7 @@ d3.select('svg')
 
 var map = svg.append('g');
 
+
 //Define projection
 /*
 var projection = d3.geo.orthographic()

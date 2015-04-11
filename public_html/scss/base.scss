@@ -49,6 +49,15 @@ h2{
 	left: 10%;
 }
 
+#infoText{
+	@extend .defText;
+	color: $f-shadow-color;
+	background-color: white;
+	padding: $def-padding;
+	width:400;
+	left: 0%;
+}
+
 #mapTitle{
 	top: 1%;
 	left: 30%;

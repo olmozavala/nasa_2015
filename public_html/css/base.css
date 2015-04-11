@@ -10,7 +10,7 @@ html, body {
 }
 
 /* line 33, ../scss/base.scss */
-.defText, #errorText, #mapTitle {
+.defText, #errorText, #infoText, #mapTitle {
   position: absolute;
   color: white;
 }
@@ -33,13 +33,22 @@ h2 {
 }
 
 /* line 52, ../scss/base.scss */
+#infoText {
+  color: #95bbb8;
+  background-color: white;
+  padding: 5px 10px;
+  width: 400;
+  left: 0%;
+}
+
+/* line 61, ../scss/base.scss */
 #mapTitle {
   top: 1%;
   left: 30%;
   text-shadow: #95bbb8 0 2px 1px, #95bbb8 2px 0 1px, #95bbb8 -2px 0 1px, #95bbb8 0 -2px 1px, #95bbb8 2px 2px 1px, #95bbb8 -2px 2px 1px, #95bbb8 2px -2px 1px, #95bbb8 -2px -2px 1px;
 }
 
-/* line 59, ../scss/base.scss */
+/* line 68, ../scss/base.scss */
 #maingraph {
   background-color: #B4CFCD;
 }
