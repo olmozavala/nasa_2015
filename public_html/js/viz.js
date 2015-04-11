@@ -36,10 +36,12 @@ function renderMap(){
 						.attr("d",path)
 						.attr("id",function(d,i){return "country"+i;})
 						.classed("land",true)
-//						.on("click", dispCountryName)
+						.on("click", function(d,i){
+							$("#country"+i).css("fill","green");
+							dispCountryName(d,i);
+						})
 						.on("mouseenter", function(d,i){ 
 							$("#country"+i).css("fill","blue");
-							dispCountryName(d,i);
 						})
 						.on("mouseout", function(d,i){
 							d3.select("#tooltip").style("opacity",0);
@@ -51,38 +53,6 @@ function renderMap(){
 		});
 	});
 	
-	/*
-	renderWorld.then(function(result) {
-		d3.json("data/Locations.json", function(err, data) {
-			if (err){
-				dispError("Not able to display counties");
-			}else{
-				var spie_loc = topojson.feature(data, data.objects);// TopoJSON -> GeoJSON
-				
-				svg.selectAll("circle")
-						.data(spie_loc.features)
-						.enter()
-						.append("circle")
-						.classed("institute",true)
-						.attr("r",function(d){return d.properties.count/2;})
-						.attr("id",function(d,i){return i;})
-						.attr("cx",function(d){return projection(d.geometry.coordinates)[0]})
-						.attr("cy",function(d){return projection(d.geometry.coordinates)[1]})
-						.style("fill",function(d){return colors(d.properties.count);})
-						.on("mouseover", dispInstituteName)
-						.on("mouseout", function(d,i){
-							d3.select("#tooltip").style("opacity",0);
-					$("#"+i).css("fill",colors(d.properties.count));
-				});
-				
-				d3.selectAll("path").call(zoom);
-
-				$(window).resize(resizeMap);
-			}
-		});
-	}, function(err) {
-		dispError(err);
-	});*/
 }//RenderMap
 
 function resizeMap(){
@@ -107,16 +77,4 @@ function dispCountryName(d,i){
 			.style("opacity",1)
 			.style("left", (d3.event.pageX + 20) + "px")
 			.style("top", (d3.event.pageY - 10) + "px");
-}
-
-function dispInstituteName(d,i){
-	d3.select("#tooltip")
-			.text(d.properties.name+" ("+d.properties.count+")")
-			.classed("tooltipInst",false)
-			.classed("tooltip",true)
-			.style("opacity",1)
-			.style("left", (d3.event.pageX - 20) + "px")
-			.style("top", (d3.event.pageY + 10) + "px");
-	
-	$("#"+i).css("fill",highlight_color);
 }
