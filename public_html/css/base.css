@@ -1,0 +1,45 @@
+/* 
+    Created on : Jan 15, 2015, 4:51:56 PM
+    Author     : olmozavala
+*/
+/* line 14, ../scss/base.scss */
+html, body {
+  margin: 0px;
+  border: 0px;
+  background-color: #B4CFCD;
+}
+
+/* line 33, ../scss/base.scss */
+.defText, #errorText, #mapTitle {
+  position: absolute;
+  color: white;
+}
+
+/* line 38, ../scss/base.scss */
+h2 {
+  text-align: center;
+}
+
+/* line 42, ../scss/base.scss */
+#errorText {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  background-color: #d9534f;
+  padding: 5px 10px;
+  display: none;
+  top: 90%;
+  left: 10%;
+}
+
+/* line 52, ../scss/base.scss */
+#mapTitle {
+  top: 1%;
+  left: 30%;
+  text-shadow: #95bbb8 0 2px 1px, #95bbb8 2px 0 1px, #95bbb8 -2px 0 1px, #95bbb8 0 -2px 1px, #95bbb8 2px 2px 1px, #95bbb8 -2px 2px 1px, #95bbb8 2px -2px 1px, #95bbb8 -2px -2px 1px;
+}
+
+/* line 59, ../scss/base.scss */
+#maingraph {
+  background-color: #B4CFCD;
+}
