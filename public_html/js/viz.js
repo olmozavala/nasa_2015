@@ -37,10 +37,12 @@ function renderMap(){
 						.attr("id",function(d,i){return "country"+i;})
 						.classed("land",true)
 //						.on("click", dispCountryName)
-						.on("mouseenter", function(d,i){ $("#country"+i).css("fill","blue");})
+						.on("mouseenter", function(d,i){ 
+							$("#country"+i).css("fill","blue");
+							dispCountryName(d,i);
+						})
 						.on("mouseout", function(d,i){
 							d3.select("#tooltip").style("opacity",0);
-							dispCountryName();
 					$("#country"+i).css("fill","black");
 				});
 				
