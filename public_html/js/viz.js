@@ -5,6 +5,8 @@ var selected_color= d3.rgb(170,105,17);
 var def_color = d3.rgb(0,0,0);
 var exportsData;
 
+var currentlySelected = 0;
+
 //These variables should be readed  from the interface
 var currentYear = 0;
 var currentMovement = "";// It can be imports or exports
@@ -22,6 +24,7 @@ function refreshMap(){
 			.attr("cy",function(d){return projection(d.geometry.coordinates)[1]});
 	
 }
+
 
 //jquery init function
 function renderMap(){
@@ -50,7 +53,17 @@ function renderMap(){
 					years = _.uniq(years);
 					fillYearsDropdown(years);
 					fillImportDropdwon();
-				fillProductsDropdown(products);
+					fillProductsDropdown(products);
+					//What to do when the dropdowns are modified 
+					$("#dn_products").on("change", function(d){
+						if(currentlySelected !== 0){
+							clearColor();
+							d = d3.select("#country"+currentlySelected);
+							var currCountry = $("#country"+currentlySelected)
+							currCountry.css("fill",selected_color);
+							exportsByCountry(currCountry.attr("name")); 
+						}
+					});
 					exportsData = data;
 					resolve("Data loaded correctly");
 				}
@@ -73,19 +86,27 @@ function renderMap(){
 						.enter()
 						.append("path")
 						.attr("d",path)
+						.attr("name",function(d,i){
+							return d.properties.name; })
 						.attr("id",function(d,i){
 							return "country"+d.id; })
 						.classed("land",true)
 						.on("click", function(d,i){
-							$("#country"+d.id).css("fill",selected_color);
-					dispCountryName(d,i);
-					exportsByCountry(d,i); })
+							clearColor();
+					currentlySelected = d.id;
+					$("#country"+d.id).css("fill",selected_color);
+					dispCountryName(d.properties.name);
+					exportsByCountry(d.properties.name); 
+					})
 						.on("mouseenter", function(d,i){ 
-							$("#country"+d.id).css("fill","blue"); })
+							if(currentlySelected ===  0){ $("#country"+d.id).css("fill" ,"blue"); }
+							})
 						.on("mouseout", function(d,i){
-							d3.select("#tooltip").style("opacity",0);
-					$("#country"+d.id).css("fill","black");
-				});
+							if(currentlySelected ===  0){
+								d3.select("#tooltip").style("opacity",0);
+								$("#country"+d.id).css("fill","black");
+							}
+						});
 				resolve("Countries loaded correctly");
 			}
 		});
@@ -93,7 +114,7 @@ function renderMap(){
 }//RenderMap
 
 function clearColor(){
-	svg.selectAll(".land")[0].css("fill" ,def_color);
+	$("path[class=land]").css("fill","black")	
 }
 
 function resizeMap(){
@@ -110,9 +131,9 @@ function resizeMap(){
 	refreshMap();
 }
 
-function dispCountryName(d,i){
+function dispCountryName(name){
 	d3.select("#tooltip")
-			.text(d.properties.name)
+			.text(name)
 			.classed("tooltip",false)
 			.classed("tooltipInst",true)
 			.style("opacity",1)
@@ -120,9 +141,8 @@ function dispCountryName(d,i){
 			.style("top", (d3.event.pageY - 10) + "px");
 }
 
-function exportsByCountry(d,i){
-	var  fromCountryId = d.id;
-	var  fromCountryName = d.properties.name;
+function exportsByCountry(name){
+	var  fromCountryName = name;
 	var countriesNames = new Array();
 	var countriesValues = new Array();
 	var maxAmountExports = 0;
@@ -130,7 +150,7 @@ function exportsByCountry(d,i){
 	currentYear = $("#dn_years").val();
 	currentMovement = $("#dn_import").val();
 	currentCategory = $("#dn_products").val();
-
+	
 	//Finds the correct year
 	var tempIdx = _.findIndex(exportsData.years,{year:currentYear});
 	var countriesByYear = exportsData.years[tempIdx];
@@ -156,8 +176,8 @@ function exportsByCountry(d,i){
 		allExportCountries.countries.forEach(
 				function(d,i){
 					var countryId = idFromName(d.name);
-			var amountNorm = parseFloat(d.amount)/maxAmountExports;
-			$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
+					var amountNorm = maxAmountExports/(5*parseFloat(d.amount));// TODO improve how the color is modified
+					$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
 		});
 		
 		//CALL JONATHAN FUNCTION WITH contriesNames and countriesValues
