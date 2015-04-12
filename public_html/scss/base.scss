@@ -60,6 +60,16 @@ h2{
 	left: 0%;
 }
 
+#people{
+	@extend .defText;
+	color: $f-shadow-color;
+	padding: $def-padding;
+	bottom: 0px;
+	width: 100%;
+	background-color: white;
+	@include opacity(.9);
+}
+
 #googgraph{
 	@extend .defText;
 	color: $f-shadow-color;
@@ -68,6 +78,7 @@ h2{
 	width:100%;
 	height: 300px;
 	bottom: 0px;
+	display: none;
 	@include opacity(.8);
 }
 
