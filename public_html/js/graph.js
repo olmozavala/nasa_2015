@@ -156,12 +156,12 @@ function appendBarchar(obj){
 	//The frist 3 lines are the weird ones. You first select
 	// all the rectangles that doesn't exist and then you append
 	// them on the svg object
-	obj.selectAll('rect')
+	obj.selectAll('rect').attr("class", "rectStyle")
 			.data(bardata)
 			.enter().append('rect')
 			.style('fill', function(d){
 				return colors(d);
-				}).attr("class", "rectStyle")
+				}).attr("class", "rectStyles")
 			.attr('width', xScale.rangeBand())
 			.attr('height', function(d){
 				return yScale(d);

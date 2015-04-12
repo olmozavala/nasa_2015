@@ -93,6 +93,24 @@ and open the template in the editor.
 				  transition: opacity .5s ease-in-out
 				}
 
+				svg#maingraph.maingraph g path#countryATA.land {
+					display: none !important;
+				}
+
+				svg#maingraph.maingraph {
+					overflow: visible !important;
+				}
+	  			
+	  			#titles, #tweet-total-range, #date-range, #graph-base, .rectStyle {
+					transform: translate(0px, 720px);
+				  }
+
+				 .rectStyles {
+				        
+				          transform: translate(-50px,843px); 
+				  }
+				
+
 				@media only screen and (min-width: 700px) { /* desktop */
 				 
 				  #tweet-total-range text:nth-child(odd),
@@ -126,11 +144,13 @@ and open the template in the editor.
 				    font-size:20px;
 				    transform: translate(0px);
 				  }
-				  .rectStyle {
+				  .rectStyles {
 				        
-				          transform: translate(-50px,122px);
-				           
+				          transform: translate(-50px,843px); 
+				  }
 
+				  #titles, #tweet-total-range, #date-range, #graph-base, .rectStyle {
+					transform: translate(0px, 720px);
 				  }
 
 				}
