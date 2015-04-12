@@ -186,7 +186,7 @@ function exportsByCountry(name){
 		console.log(currentMovement, "curr Movement");
 		console.log(currentCategory,  "curr Category");
 
-		drawBasic();
+		drawChart(countriesNames, countriesValues, currentCategory, currentMovement, currentlySelected);
 
 /*
 		function makeGraph(Year, Category, Movement, LastClickedLand) {

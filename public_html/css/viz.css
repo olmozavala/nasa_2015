@@ -1,6 +1,7 @@
 /* 
     Created on : Feb 28, 2015, 9:33:11 PM
     Author     : olmozavala
+	    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 */
 /* 
     Created on : Jan 15, 2015, 4:51:56 PM
@@ -82,7 +83,7 @@ h2 {
   background-color: #b4cfcd;
 }
 
-/* line 10, ../scss/viz.scss */
+/* line 11, ../scss/viz.scss */
 .land, .blue {
   stroke: #8A8A8A;
   stroke-width: .3;
@@ -91,12 +92,12 @@ h2 {
   opacity: .5;
 }
 
-/* line 18, ../scss/viz.scss */
+/* line 19, ../scss/viz.scss */
 .blue {
   fill: blue;
 }
 
-/* line 23, ../scss/viz.scss */
+/* line 24, ../scss/viz.scss */
 .grid {
   fill: transparent;
   stroke: #B9B9B9;
@@ -105,21 +106,21 @@ h2 {
   opacity: 1;
 }
 
-/* line 31, ../scss/viz.scss */
+/* line 32, ../scss/viz.scss */
 .institute {
   stroke: black;
   stroke-width: .3;
   opacity: 0.8;
 }
 
-/* line 36, ../scss/viz.scss */
+/* line 37, ../scss/viz.scss */
 .current {
   stroke: #8A8A8A;
   stroke-width: .3;
   opacity: .5;
 }
 
-/* line 41, ../scss/viz.scss */
+/* line 42, ../scss/viz.scss */
 .tooltip, .tooltipInst {
   background-color: white;
   position: absolute;
@@ -138,7 +139,7 @@ h2 {
   border-radius: 5px;
 }
 
-/* line 53, ../scss/viz.scss */
+/* line 54, ../scss/viz.scss */
 .tooltipInst {
   background-color: #FEFBE0;
 }
