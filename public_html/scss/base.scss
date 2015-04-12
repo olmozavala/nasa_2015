@@ -14,6 +14,8 @@ $warning-color: #d9534f;
 html,body{
 	margin: 0px;
 	border: 0px;
+	width: 100%;
+	height: 100%;
 	background-color: $background_color;
 }
 
@@ -56,6 +58,17 @@ h2{
 	padding: $def-padding;
 	width:400;
 	left: 0%;
+}
+
+#graph{
+	@extend .defText;
+	color: $f-shadow-color;
+	background-color: white;
+	padding: $def-padding;
+	width:100%;
+	height: 300px;
+	bottom: 0px;
+	@include opacity(.8);
 }
 
 #options{

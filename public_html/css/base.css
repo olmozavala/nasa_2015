@@ -6,26 +6,28 @@
 html, body {
   margin: 0px;
   border: 0px;
-  background-color: #B4CFCD;
-  width: 639px;
-  height: 1296px;
+  width: 100%;
+  height: 100%;
+  background-color: #b4cfcd;
 }
 
-/* line 33, ../scss/base.scss */
-.defText, #errorText, #infoText, #options, #mapTitle {
+/* line 35, ../scss/base.scss */
+.defText, #errorText, #infoText, #graph, #options, #mapTitle {
   position: absolute;
   color: white;
 }
 
-/* line 38, ../scss/base.scss */
+/* line 40, ../scss/base.scss */
 h2 {
   text-align: center;
 }
 
-/* line 42, ../scss/base.scss */
+/* line 44, ../scss/base.scss */
 #errorText {
-  -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
   border-radius: 15px;
   background-color: #d9534f;
   padding: 5px 10px;
@@ -34,7 +36,7 @@ h2 {
   left: 10%;
 }
 
-/* line 52, ../scss/base.scss */
+/* line 54, ../scss/base.scss */
 #infoText {
   color: #95bbb8;
   background-color: white;
@@ -43,7 +45,19 @@ h2 {
   left: 0%;
 }
 
-/* line 61, ../scss/base.scss */
+/* line 63, ../scss/base.scss */
+#graph {
+  color: #95bbb8;
+  background-color: white;
+  padding: 5px 10px;
+  width: 100%;
+  height: 300px;
+  bottom: 0px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+/* line 74, ../scss/base.scss */
 #options {
   color: #95bbb8;
   padding: 5px 10px;
@@ -52,14 +66,14 @@ h2 {
   top: 10%;
 }
 
-/* line 70, ../scss/base.scss */
+/* line 83, ../scss/base.scss */
 #mapTitle {
   top: 0%;
   left: 40%;
   text-shadow: #95bbb8 0 2px 1px, #95bbb8 2px 0 1px, #95bbb8 -2px 0 1px, #95bbb8 0 -2px 1px, #95bbb8 2px 2px 1px, #95bbb8 -2px 2px 1px, #95bbb8 2px -2px 1px, #95bbb8 -2px -2px 1px;
 }
 
-/* line 77, ../scss/base.scss */
-/*#maingraph {
-  background-color: #B4CFCD;
-}*/
+/* line 90, ../scss/base.scss */
+#maingraph {
+  background-color: #b4cfcd;
+}

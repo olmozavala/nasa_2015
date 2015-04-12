@@ -187,6 +187,7 @@ function exportsByCountry(name){
 		var currentLand = document.getElementById("tooltip").innerHTML;
 		console.log(currentLand,  "curr Land");
 
+/*
 		function makeGraph(Year, Category, Movement, LastClickedLand) {
 			d3.selectAll('rect').attr("class", "vis");
 			d3.select("#titles").attr("class", "vis");
@@ -196,8 +197,9 @@ function exportsByCountry(name){
 			document.getElementById("graphDate").innerHTML  = currentYear;
 			document.getElementById("graphTitle").innerHTML = Category+ ": " + LastClickedLand+ ": " + Movement;
 		}
+		*/
 
-		makeGraph(currentYear, currentCategory, currentMovement, currentLand);
+//		makeGraph(currentYear, currentCategory, currentMovement, currentLand);
 
 		// makeGraph(countriesNames, countriesValues, currentYear, currentMovement, currentCategory);
 
