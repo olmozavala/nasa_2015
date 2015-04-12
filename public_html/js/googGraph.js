@@ -3,8 +3,8 @@ google.load('visualization', '1', {packages: ['corechart', 'bar']});
 function drawChart(countriesNames, countriesValues, 
 		currentCategory, currentMovement, currentlySelected){
 
-	$("#googgraph").show();
-	$("#people").style("bottom","300px");
+	$("#googgraphcontainer").show();
+	$("#people").css("bottom","300px");
 	var merged = new Array();
 
 	countriesValues.forEach(function(d,i){

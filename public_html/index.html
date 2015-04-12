@@ -16,16 +16,19 @@
 		<link rel="stylesheet" href="css/bootstrap.css"/>
 	</head>
 	<body style="background-color: #B4CFCD">
-		<div id="mapTitle"><h1>Food distribution</h1></div>
+		<div id="mapTitle"><h1>World Food Distribution</h1></div>
 		<div id="errorText"></div>
+
 		<div id="people">
 			<p>Made by: 
-				Yazmin Valdez,
-				Yes Segura,
-				<a href="#">Jonathan James</a> and 
 				<a href="http://olmozavala.com">Olmo Zavala</a>,
+				<a href="#">Jonathan James</a>,
+				Yazmin Valdez,
+				Yes Segura, and
+				Elena Tai
 				&copy; 2015</p>
 		</div>
+
 		<div id="options" >
 			<form class="form-inline">
 				<div class="form-group">
@@ -36,7 +39,9 @@
 			</form>
 		</div>
 		<svg id="maingraph" ></svg>
-		<div id="googgraph" ></div>
+		<div id="googgraphcontainer" >
+			<div id="googgraph" ></div>
+		</div>
 		<div id="tooltip" class="tooltip"></div>
 		<script src="js/base.js"></script>
 		<script src="js/viz.js"></script>

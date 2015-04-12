@@ -75,6 +75,17 @@ h2{
 	color: $f-shadow-color;
 	background-color: white;
 	padding: $def-padding;
+	width:70%;
+	height: 300px;
+	bottom: 0px;
+	@include opacity(.8);
+}
+
+#googgraphcontainer{
+	@extend .defText;
+	color: $f-shadow-color;
+	background-color: white;
+	padding: $def-padding;
 	width:100%;
 	height: 300px;
 	bottom: 0px;
