@@ -58,9 +58,18 @@ h2{
 	left: 0%;
 }
 
+#options{
+	@extend .defText;
+	color: $f-shadow-color;
+	padding: $def-padding;
+	width:600;
+	left: 50%;
+	top: 10%;
+}
+
 #mapTitle{
-	top: 1%;
-	left: 30%;
+	top: 0%;
+	left: 40%;
 	@extend .defText;
 	@include textHalo($f-shadow-color);
 }
@@ -68,5 +77,3 @@ h2{
 #maingraph{
 	background-color: $background_color;
 }
-
-

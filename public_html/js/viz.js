@@ -1,12 +1,15 @@
 var fileName = "data/world-countries.json";
 var highlight_color = d3.rgb(0,255,0);
+//var selected_color= d3.rgb(16,76,39);
+var selected_color= d3.rgb(170,105,17);
 var def_color = d3.rgb(0,0,0);
 var exportsData;
+var currentlySelected = 
 
 //These variables should be readed  from the interface
-var currentYear = "2000";
-var currentMovement = "exports";// It can be imports or exports
-var currentCategory = "corn";
+var currentYear = 0;
+var currentMovement = "";// It can be imports or exports
+var currentCategory = "";
 
 var zoom = d3.geo.zoom().projection(projection)
             .scaleExtent([projection.scale() * .7, projection.scale() * 10])
@@ -25,9 +28,35 @@ function refreshMap(){
 function renderMap(){
 	
 	var fileNameExports = "data/Exports.json";
-	d3.json(fileNameExports, function(err, data) {
-		exportsData = data;
-	});
+	
+	var readData = new Promise(function(resolve, reject) {
+			d3.json(fileNameExports, function(err, data) {
+				if (err){
+					console.log(err);
+					reject(Error("Can't load the trades data."));
+				}else{
+					// Filling the years dropdown
+					var years = new Array();
+					var products = new Array();
+					data.years.forEach(function(d){
+						 years.push(d.year);
+
+						 d.countries.forEach(function(origin){
+						 	origin.exports.forEach(function(singleExport){
+						 		products.push(singleExport.product); })
+							});
+						 });
+
+					products = _.uniq(products);
+					years = _.uniq(years);
+					fillYearsDropdown(years);
+					fillImportDropdwon();
+				fillProductsDropdown(products);
+					exportsData = data;
+					resolve("Data loaded correctly");
+				}
+			});
+		});
 	//Adds the graticule
 	map.append("path")
 			.datum(graticule)
@@ -45,27 +74,23 @@ function renderMap(){
 						.enter()
 						.append("path")
 						.attr("d",path)
-						.attr("id",function(d,i){return "country"+d.id;})
+						.attr("id",function(d,i){
+							return "country"+d.id; })
 						.classed("land",true)
 						.on("click", function(d,i){
-//							clearColor();
-							$("#country"+d.id).css("fill",highlight_color);
-							dispCountryName(d,i);
-							exportsByCountry(d,i);
-						})
+							$("#country"+d.id).css("fill",selected_color);
+					dispCountryName(d,i);
+					exportsByCountry(d,i); })
 						.on("mouseenter", function(d,i){ 
-							$("#country"+d.id).css("fill","blue");
-						})
+							$("#country"+d.id).css("fill","blue"); })
 						.on("mouseout", function(d,i){
 							d3.select("#tooltip").style("opacity",0);
-						$("#country"+d.id).css("fill","black");
+					$("#country"+d.id).css("fill","black");
 				});
-				
 				resolve("Countries loaded correctly");
 			}
 		});
 	});
-	
 }//RenderMap
 
 function clearColor(){
@@ -102,17 +127,21 @@ function exportsByCountry(d,i){
 	var countriesNames = new Array();
 	var countriesValues = new Array();
 	var maxAmountExports = 0;
+	
+	currentYear = $("#dn_years").val();
+	currentMovement = $("#dn_import").val();
+	currentCategory = $("#dn_products").val();
 
 	//Finds the correct year
 	var tempIdx = _.findIndex(exportsData.years,{year:currentYear});
 	var countriesByYear = exportsData.years[tempIdx];
-//	console.log(countriesByYear);
-
+	//	console.log(countriesByYear);
+	
 	//Finds the correct country
 	tempIdx = _.findIndex(countriesByYear.countries,{name:fromCountryName});
 	var selectedCountryData = countriesByYear.countries[tempIdx]; 
-//	console.log(idFromName(fromCountryName));
-
+	//	console.log(idFromName(fromCountryName));
+	
 	if(currentMovement === "exports"){// It can be imports or exports
 		tempIdx = _.findIndex(selectedCountryData.exports, {product:currentCategory});
 		var allExportCountries = selectedCountryData.exports[tempIdx];
@@ -120,27 +149,20 @@ function exportsByCountry(d,i){
 		allExportCountries.countries.forEach(
 				function(d){
 					countriesNames.push(d.name);
-					countriesValues.push(parseFloat(d.amount));
+			countriesValues.push(parseFloat(d.amount));
 		});
-
+		
 		maxAmountExports = _.max(countriesValues);
 		//Obtain min and max
 		allExportCountries.countries.forEach(
 				function(d,i){
 					var countryId = idFromName(d.name);
-					var amountNorm = parseFloat(d.amount)/maxAmountExports;
-					$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
+			var amountNorm = parseFloat(d.amount)/maxAmountExports;
+			$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
 		});
-
+		
 		//CALL JONATHAN FUNCTION WITH contriesNames and countriesValues
 	}else{
 		console.log("Missing code for imports");
 	};
-}
-
-function idFromName(id){
-	var conv = {"Mexico": "MEX",
-		"Australia": "AUS",
-		"Canada": "CAN"};
-	return conv[id];
 }
