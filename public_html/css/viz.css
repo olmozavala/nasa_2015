@@ -16,7 +16,7 @@ html, body {
 }
 
 /* line 35, ../scss/base.scss */
-.defText, #errorText, #infoText, #graph, #options, #mapTitle {
+.defText, #errorText, #infoText, #googgraph, #options, #mapTitle {
   position: absolute;
   color: white;
 }
@@ -50,7 +50,7 @@ h2 {
 }
 
 /* line 63, ../scss/base.scss */
-#graph {
+#googgraph {
   color: #95bbb8;
   background-color: white;
   padding: 5px 10px;

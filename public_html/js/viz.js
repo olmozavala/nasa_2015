@@ -179,13 +179,14 @@ function exportsByCountry(name){
 					var amountNorm = maxAmountExports/(5*parseFloat(d.amount));// TODO improve how the color is modified
 					$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
 		});
+
 		console.log(countriesNames,  "ctny Names", countriesNames.length, "length");
 		console.log(countriesValues, "ctny Values", countriesValues.length, "length");
 		console.log(currentYear,     "curr Year");
 		console.log(currentMovement, "curr Movement");
 		console.log(currentCategory,  "curr Category");
-		var currentLand = document.getElementById("tooltip").innerHTML;
-		console.log(currentLand,  "curr Land");
+
+		drawBasic();
 
 /*
 		function makeGraph(Year, Category, Movement, LastClickedLand) {
