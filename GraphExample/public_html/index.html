@@ -17,6 +17,158 @@ and open the template in the editor.
 		<section id="chart">
 			<svg class="maingraph" ></svg>
 		</section>
-		<script src="js/myjs.js"></script>
+		
+
+
+<svg id="graph" viewBox="0 0 1296 639" width="100%" height="100%">
+<style>
+.landLabels {
+   font-size:20px;
+  font-family:Helvetica;
+  transform: rotate(-30deg);  
+}
+  
+#trendline {
+  stroke-dasharray:0;
+  stroke-width:10;
+  stroke:red;
+  fill:none;
+}
+#trendline-filled{
+  fill:none
+  }
+#axis{
+  stroke:#333333; 
+  stroke-width: 1;
+  fill: none;
+  }
+#titles .subtitle {
+  font-size:26px;
+  color:#000;
+  font-family:Helvetica;
+  text-align:left
+}
+
+#titles .title {
+  font-size:50px;
+  color:#000;
+  font-family:Helvetica, Arial, sans-serif;
+}
+
+.text {
+  font-size:32px;
+  font-family:Helvetica;
+  transform: translate(-20px);
+  
+}
+
+.horizontals {
+  stroke:#333;
+  stroke-width:0;
+  fill:none;
+  stroke-dasharray:2 5;
+}
+
+ #date-range text:nth-child(odd),
+ #tweet-total-range text:nth-child(odd) {
+  opacity: 0;
+  transition: opacity .5s ease-in-out
+}
+
+@media only screen and (min-width: 700px) { /* desktop */
+ 
+  #tweet-total-range text:nth-child(odd),
+  #date-range text:nth-child(odd)  {
+    opacity:1;
+    transition:opacity .5s ease-in-out;
+  }
+  
+  #trendline {
+    stroke-width:7;
+    stroke-dasharray: 5 3;
+    stroke: red
+  }
+  #trendline-filled{
+    fill:#ffaa00;
+    fill-opacity: 0.2;
+  }
+  #titles .title {
+    font-size:42px;
+    letter-spacing:2px
+  }
+  #titles .subtitle {
+    font-size:18px;
+    letter-spacing:1px
+  }
+  
+  .horizontals {
+    stroke-width:1
+  }
+  .text {
+    font-size:20px;
+    transform: translate(0px);
+  }
+
+}
+</style>
+<g id="titles">
+<!--  heading  -->
+  <text id="graphDate" class="subtitle" x="58" y="81" width="236" >
+    <!-- FILL WITH DATE STRING VAR THAT REPS DATE -->
+  </text>
+  <text id="graphTitle" class="title" x="53" y="40" width="406" >
+   <!-- FILL WITH STRING VAR THAT REPS PRODUCT -->
+  </text>
+</g>
+
+<g id="tweet-total-range">
+<!--  tweet total marker text  -->
+  <text id="yMaxText" x="20" y="120" width="27"  class="text">
+  </text>
+  <text id="y1" x="20" y="183" width="27"  class="text">
+  </text>
+  <text id="y2" x="20" y="246" width="27"  class="text">
+  </text>
+  <text id="y3" x="20" y="309" width="27"  class="text" >
+  </text>
+  <text id="y4" x="20" y="372" width="27"  class="text">
+  </text>
+  <text id="origin" x="20" y="435" width="27"  class="text">
+  </text>
+</g>
+<g id="date-range">
+<!--  date range text markers  -->
+  <text id="ctry1" x="-114" y="471" width="47"  class="landLabels">
+  </text>
+  <text id="ctry2" x="-14" y="525" width="47"  class="landLabels">
+  </text>
+  <text id="ctry3" x="86" y="581" width="47"  class="landLabels">
+  </text>
+  <text id="ctry4" x="186" y="639" width="47"  class="landLabels">
+  </text>
+  <text id="ctry5" x="286" y="699" width="47"  class="landLabels">
+    testing
+  </text>
+  <text id="ctry6" x="386" y="760" width="41"  class="landLabels">
+  </text>
+  <text id="ctry7" x="486" y="810" width="41"  class="landLabels">
+  </text>
+  <text id="ctry8" x="935" y="451" width="41"  class="landLabels">
+  </text>
+  <text id="ctry9" x="1052" y="451" width="49"  class="landLabels">
+  </text>
+  <text id="ctry10" x="1165" y="451" width="49"  class="landLabels">
+  </text>
+</g>
+<g id="graph-base">
+  <!--  graph axis and horizontal markers  -->
+  <path id="axis" d="M 68 93 L 68 423 L 1240 423 " />
+  <path id="20k" d="M 68 168 L 1240 168 " class="horizontals"/>
+  <path id="15k" d="M 68 233 L 1240 233 " class="horizontals"/>
+  <path id="10k" d="M 68 297 L 1240 297 " class="horizontals"/>
+  <path id="5k" d="M 68 360 L 1240 360 " class="horizontals"/>
+</g>
+</svg>
+<script src="js/myjs.js"></script>
 	</body>
 </html>
