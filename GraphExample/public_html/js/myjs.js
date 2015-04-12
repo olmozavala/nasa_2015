@@ -112,9 +112,9 @@ for (var prop in obj) {
 
 
 
-var width = 400;
+var width = 639;
 var height = 400;
-var bardata =  d3.range(0,20) ;
+var bardata =  d3.range(0,11) ;
 
 var barWidth = 40;
 var barHeight = 100;
