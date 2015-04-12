@@ -1,0 +1,61 @@
+{ "years":[
+		{ "year": "2000",
+			"countries": [
+				{ "name":"Canada",
+					"exports": [
+						{"product":"corn",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]},
+						{"product":"meat",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]}
+					]}
+            ]},
+		{ "year": "2003", 
+			"countries": [
+				{ "name":"Canada",
+					"exports": [
+						{"product":"corn",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]},
+						{"product":"meat",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]}
+					]
+				}]
+		} ,
+		{ "year": "2000", 
+			"countries": [
+				{ "name":"Canada",
+					"exports": [
+						{"product":"corn",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]},
+						{"product":"meat",
+							"countries": [
+								{ "name":"Mexico" ,"amount":"10"}, 
+								{ "name":"Australia" ,"amount":"14"}, 
+								{ "name":"Brazil" ,"amount":"10"}
+							]}
+					]
+				}]
+		}
+
+	]
+
+}
