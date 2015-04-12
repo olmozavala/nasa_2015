@@ -112,11 +112,11 @@ for (var prop in obj) {
 
 
 
-var width = 639;
+var width = 1296;
 var height = 400;
 var bardata =  d3.range(0,11) ;
 
-var barWidth = 40;
+var barWidth = 80;
 var barHeight = 100;
 var barOffset = 5;
 
