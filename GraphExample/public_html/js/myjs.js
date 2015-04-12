@@ -112,7 +112,7 @@ for (var prop in obj) {
 
 
 
-var width = 1296;
+var width = 1290;
 var height = 400;
 var bardata =  d3.range(0,11) ;
 
@@ -133,7 +133,7 @@ function addRectangle(obj){
 	obj.append("rect")
 			.attr('x',100)
 			.attr('y',100)
-			.attr('width',100)
+			.attr('width',90)
 			.attr('height',100)
 			.style('fill','green');
 }
@@ -161,7 +161,7 @@ function appendBarchar(obj){
 			.enter().append('rect')
 			.style('fill', function(d){
 				return colors(d);
-				})
+				}).attr("class", "rectStyle")
 			.attr('width', xScale.rangeBand())
 			.attr('height', function(d){
 				return yScale(d);

@@ -6,18 +6,24 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-	<head>
-		<title>TODO supply a title</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-		<link rel="stylesheet" href="css/mystyle.css"/>
-	</head>
-	<body>
 
-			<svg id="chart" class="maingraph" viewBox="0 0 1296 639" width="100%" height="100%">
-			  <style>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- <link rel="stylesheet" href="css/mystyle.css"/> -->
+  </head>
+  <body>
+
+      <svg id="chart" class="maingraph" viewBox="0 0 1296 639" width="100%" height="100%">
+        <style>
 
 .landLabels {
    font-size:20px;
@@ -105,6 +111,12 @@ and open the template in the editor.
     font-size:20px;
     transform: translate(0px);
   }
+  .rectStyle {
+        
+          transform: translate(-50px,122px);
+           
+
+  }
 
 }
 </style>
@@ -165,6 +177,7 @@ and open the template in the editor.
   <path id="10k" d="M 68 297 L 1240 297 " class="horizontals"/>
   <path id="5k" d="M 68 360 L 1240 360 " class="horizontals"/>
 </g>
-			</svg>
-	</body>
+      </svg>
+      <script src="js/myjs.js" charset="utf-8"></script>
+  </body>
 </html>
