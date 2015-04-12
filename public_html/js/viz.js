@@ -4,7 +4,6 @@ var highlight_color = d3.rgb(0,255,0);
 var selected_color= d3.rgb(170,105,17);
 var def_color = d3.rgb(0,0,0);
 var exportsData;
-var currentlySelected = 
 
 //These variables should be readed  from the interface
 var currentYear = 0;
