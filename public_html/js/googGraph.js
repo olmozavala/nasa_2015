@@ -9,6 +9,7 @@ function drawChart(countriesNames, countriesValues,
 
 	countriesValues.forEach(function(d,i){
 		merged.push({"name":countriesNames[i], "value":countriesValues[i]});
+		console.log(countriesNames);
 	})
 
 	console.log(merged);
@@ -34,7 +35,7 @@ function drawChart(countriesNames, countriesValues,
 	data.addColumn('number', 'Amounts');
 
 	merged.forEach(function(d,i){
-		if(i < 10){
+		if(i < 48){
 			data.addRow( [d.name, d.value]);
 		}
 	})
