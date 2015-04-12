@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 var product        = "Product";
-var date           = "Date Text";
+// var date           = "Date Text";
 var clickedCountry = "LastClickedCountry" 
 var tradeType      = "TradeType"; //fill this string with "imports" or "Exports" depending on dropdown UI 
 
 document.getElementById("graphTitle").innerHTML = product+ ": " + clickedCountry+ ": " + tradeType;
-document.getElementById("graphDate").innerHTML  = date;
+// document.getElementById("graphDate").innerHTML  = date;
 
 var yMaxText = document.getElementById("yMaxText"); 
 var y1       = document.getElementById("y1");
@@ -112,9 +112,9 @@ for (var prop in obj) {
 
 
 
-var width = 1290;
+var width = 2500;
 var height = 400;
-var bardata =  d3.range(0,11) ;
+var bardata =  d3.range(0,49) ;
 
 var barWidth = 80;
 var barHeight = 100;
@@ -167,8 +167,8 @@ function appendBarchar(obj){
 				return yScale(d);
 				})
 			.attr('x', function(d,i){
-				console.log(d);
-				console.log(xScale(i));
+				// console.log(d);
+				// console.log(xScale(i));
 				return xScale(i);
 				})
 			.attr('y', function(d,i){

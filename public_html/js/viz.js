@@ -179,8 +179,28 @@ function exportsByCountry(name){
 					var amountNorm = maxAmountExports/(5*parseFloat(d.amount));// TODO improve how the color is modified
 					$("#country"+countryId).css("fill",highlight_color.darker(amountNorm));
 		});
-		
-		//CALL JONATHAN FUNCTION WITH contriesNames and countriesValues
+		console.log(countriesNames,  "ctny Names", countriesNames.length, "length");
+		console.log(countriesValues, "ctny Values", countriesValues.length, "length");
+		console.log(currentYear,     "curr Year");
+		console.log(currentMovement, "curr Movement");
+		console.log(currentCategory,  "curr Category");
+		var currentLand = document.getElementById("tooltip").innerHTML;
+		console.log(currentLand,  "curr Land");
+
+		function makeGraph(Year, Category, Movement, LastClickedLand) {
+			d3.selectAll('rect').attr("class", "vis");
+			d3.select("#titles").attr("class", "vis");
+			d3.select("#tweet-total-range").attr("class", "vis");
+			d3.select("#date-range").attr("class", "vis");
+			d3.select("#graph-base").attr("class", "vis");
+			document.getElementById("graphDate").innerHTML  = currentYear;
+			document.getElementById("graphTitle").innerHTML = Category+ ": " + LastClickedLand+ ": " + Movement;
+		}
+
+		makeGraph(currentYear, currentCategory, currentMovement, currentLand);
+
+		// makeGraph(countriesNames, countriesValues, currentYear, currentMovement, currentCategory);
+
 	}else{
 		console.log("Missing code for imports");
 	};
